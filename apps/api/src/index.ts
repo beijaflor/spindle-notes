@@ -2,9 +2,9 @@ import { Hono } from 'hono';
 
 const app = new Hono();
 
-app.get('/', (c) => {
+app.get('/', c => {
   return c.json({
-    message: 'Hello from Spindle Notes API!'
+    message: 'Hello from Spindle Notes API!',
   });
 });
 
@@ -13,7 +13,9 @@ if (process.env.NODE_ENV !== 'production') {
   // ESMで動作するサーバーのインポート方法（コンパイル時問題が発生する場合は調整が必要）
   import('@hono/node-server').then(({ serve }) => {
     console.log('Server is running on http://localhost:3001');
-    serve(app, { port: 3001 });
+    serve(app, info => {
+      console.log(`Server is running on port ${info.port}`);
+    });
   });
 }
 

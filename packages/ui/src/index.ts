@@ -1,2 +1,2 @@
 // UI コンポーネントのエクスポート
-export * from './components';
+export * from './components/index.js';

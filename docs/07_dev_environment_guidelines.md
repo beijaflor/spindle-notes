@@ -5,8 +5,8 @@
 - **Lint**: ESLint
 - **Format**: Prettier
 - **型チェック**: TypeScript
-- **コミットメッセージ規約**: Conventional Commits
-- **コミット補助ツール**: Commitizen + cz-conventional-changelog
+- **コミットメッセージ規約**: シンプルな一行メッセージ
+- **コミット補助ツール**: Commitizen + cz-customizable
 - **Git Hook 管理**: Husky + lint-staged
 - **デッドコードチェック**: knip
 
@@ -38,26 +38,36 @@
 - `skipLibCheck: true`
 - `moduleResolution: node`
 
-## 📦 Commit 規約 (Conventional Commits)
+## 📦 コミット規約
 
-### フォーマット
+このプロジェクトでは、シンプルで一行のコミットメッセージを推奨しています。
+
+### 基本原則
+
+1. **小さなコミット**: 一つのコミットは一つの変更に集中する
+2. **明確なメッセージ**: 何をしたかではなく、なぜ変更したかを説明する
+3. **簡潔さ**: 一行に収まるメッセージを心がける（最大150文字）
+
+### 良いコミットメッセージの例
 
 ```
-<type>(<scope>): <subject>
-
-<body>
-
-<footer>
+ユーザー登録フォームのバリデーション追加
+API接続タイムアウト時のエラーハンドリングを改善
+ダークモード切り替え機能の実装
+パフォーマンス向上のためにリストコンポーネントをメモ化
 ```
 
-### よく使う type 一覧
+### コミット作成方法
 
-- `feat`: 新機能追加
-- `fix`: バグ修正
-- `docs`: ドキュメントのみの変更
-- `style`: フォーマット修正のみ（コードロジックに影響なし）
-- `refactor`: リファクタリング（機能追加・バグ修正なし）
-- `chore`: ビルドプロセスやツールの変更
+```bash
+# 通常のコミット
+git add <ファイル名>
+git commit -m "コミットメッセージ"
+
+# または対話式コミット
+git add <ファイル名>
+pnpm commit
+```
 
 ## 🤖 Git Hooks (Husky + lint-staged)
 
@@ -76,7 +86,7 @@
 ## ⚡ 開発初期セットアップ例
 
 ```bash
-pnpm install -D eslint prettier typescript husky lint-staged commitizen cz-conventional-changelog @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react eslint-plugin-import eslint-plugin-unused-imports
+pnpm install -D eslint prettier typescript husky lint-staged commitizen cz-customizable @commitlint/cli @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react eslint-plugin-import eslint-plugin-unused-imports
 
 npx husky install
 npx husky add .husky/pre-commit "pnpm lint-staged"

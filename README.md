@@ -52,6 +52,7 @@ pnpm commit
 - **バックエンド**: Hono API フレームワーク (Vercel Functions)
 - **データベース**: Supabase Postgres
 - **認証**: Supabase Auth (Magic Link)
+- **CI/CD**: GitHub Actions（プッシュ時にLintとType Check）
 
 ## ドキュメント
 

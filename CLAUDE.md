@@ -10,7 +10,25 @@ Spindle-Notesは、URLを含むテーマ別ノートを作成することで情�
 - `docs/01_purpose.md` - プロジェクトの目的
 - `docs/02_data_modeling.md` - データモデル詳細
 - `docs/03_infrastructure.md` - インフラ構成
+- `docs/13_monorepo_structure.md` - モノレポ構造と設定
 - `docs/task_list.md` - 実装タスクリスト
+
+## モノレポ設定
+
+このプロジェクトはTurborepoを使用したモノレポ構造になっています。最新のTurborepo（v2以降）では、以前の`pipeline`の代わりに`tasks`を使用します：
+
+```json
+// turbo.json
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {  // 注意: v2以降では "pipeline" ではなく "tasks"
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"]
+    }
+  }
+}
+```
 
 ## 開発コマンド
 

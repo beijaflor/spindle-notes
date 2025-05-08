@@ -64,6 +64,17 @@
 - API エラー設計方針
 - ロギング・モニタリング基本方針
 
+### 12_ai_model_comparison.md
+
+- AI モデル比較・選定
+- 各モデルの特徴と用途
+
+### 13_monorepo_structure.md
+
+- モノレポ構造設計
+- パッケージ構成とワークフロー
+- Turborepo 設定戦略
+
 ### task_list.md
 
 - 詳細設計前後で決めるべきタスク一覧
